@@ -7,24 +7,10 @@
     <div style="height: calc(100vh - 51px);">
       <n-space vertical style="height: calc(100vh - 51px) !important;">
         <n-layout has-sider style="height: calc(100vh - 51px) !important;">
-          <n-layout-sider
-            bordered
-            collapse-mode="width"
-            :collapsed-width="64"
-            :width="240"
-            :heigth="100"
-            :collapsed="menu_bool"
-            @collapse="menu_bool = true"
-            @expand="menu_bool = false"
-          >
-            <n-menu
-              :collapsed="menu_bool"
-              :collapsed-width="64"
-              :collapsed-icon-size="22"
-              :options="menuOptions"
-              v-model:value="selectedMenu"
-              :onUpdate:value="updateMenu"
-            />
+          <n-layout-sider bordered collapse-mode="width" :collapsed-width="64" :width="240" :heigth="100"
+            :collapsed="menu_bool" @collapse="menu_bool = true" @expand="menu_bool = false">
+            <n-menu :collapsed="menu_bool" :collapsed-width="64" :collapsed-icon-size="22" :options="menuOptions"
+              v-model:value="selectedMenu" :onUpdate:value="updateMenu" />
           </n-layout-sider>
           <n-layout>
             <div style="padding: .5rem;">
@@ -34,31 +20,31 @@
         </n-layout>
       </n-space>
     </div>
-  </div>
+</div>
 </template>
 <script setup>
 import Header from './Header.vue'
-import { h , ref , onMounted} from "vue";
-import { useRoute , useRouter} from 'vue-router'
+import { h, ref, onMounted } from "vue";
+import { useRoute, useRouter } from 'vue-router'
 import { NIcon } from "naive-ui";
 import { Car, Location } from "@vicons/ionicons5";
-import { DashboardRound , FeaturedPlayListRound , SpaceDashboardFilled, PeopleAltFilled, PaymentsRound} from '@vicons/material'
+import { DashboardRound, FeaturedPlayListRound, SpaceDashboardFilled, PeopleAltFilled, PaymentsRound } from '@vicons/material'
 const collapsed = ref(true)
 const route = useRoute()
 const router = useRouter()
-const renderIcon = (icon)=> {
+const renderIcon = (icon) => {
   return () => h(NIcon, null, { default: () => h(icon) });
 }
 const menu_bool = ref(true)
-const openclose = () =>{
-  if(menu_bool.value){
+const openclose = () => {
+  if (menu_bool.value) {
     menu_bool.value = false
-  }else{
+  } else {
     menu_bool.value = true
   }
 }
-const updateMenu = ()=>{
-  router.push({name: selectedMenu.value})
+const updateMenu = () => {
+  router.push({ name: selectedMenu.value })
 }
 const selectedMenu = ref(null)
 const emits = defineEmits(['openclose'])
@@ -78,23 +64,23 @@ const menuOptions = ref([
     key: 'Joylashuv qo\'shish',
     icon: renderIcon(Location),
   },
-  {
-    label: 'Hisobot',
-    key: 'Hisobot',
-    icon: renderIcon(FeaturedPlayListRound),
-    children: [
-      {
-        label: 'Buyurtmalar',
-        key: 'Buyurtmalar hisoboti',
-        icon: renderIcon(SpaceDashboardFilled),
-      },
-      {
-        label: 'Haydovchilar',
-        key: 'Haydovchilar hisoboti',
-        icon: renderIcon(Car),
-      }
-    ]
-  },
+  // {
+  //   label: 'Hisobot',
+  //   key: 'Hisobot',
+  //   icon: renderIcon(FeaturedPlayListRound),
+  //   children: [
+  //     {
+  //       label: 'Buyurtmalar',
+  //       key: 'Buyurtmalar hisoboti',
+  //       icon: renderIcon(SpaceDashboardFilled),
+  //     },
+  //     {
+  //       label: 'Haydovchilar',
+  //       key: 'Haydovchilar hisoboti',
+  //       icon: renderIcon(Car),
+  //     }
+  //   ]
+  // },
   {
     label: 'Foydalanuvchilar',
     key: 'Foydalanuvchilar',
@@ -106,7 +92,7 @@ const menuOptions = ref([
     icon: renderIcon(PaymentsRound)
   }
 ]);
-onMounted(()=>{
+onMounted(() => {
   selectedMenu.value = route.name
 })
 
