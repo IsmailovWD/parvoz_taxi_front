@@ -64,23 +64,23 @@ const menuOptions = ref([
     key: 'Joylashuv qo\'shish',
     icon: renderIcon(Location),
   },
-  // {
-  //   label: 'Hisobot',
-  //   key: 'Hisobot',
-  //   icon: renderIcon(FeaturedPlayListRound),
-  //   children: [
-  //     {
-  //       label: 'Buyurtmalar',
-  //       key: 'Buyurtmalar hisoboti',
-  //       icon: renderIcon(SpaceDashboardFilled),
-  //     },
-  //     {
-  //       label: 'Haydovchilar',
-  //       key: 'Haydovchilar hisoboti',
-  //       icon: renderIcon(Car),
-  //     }
-  //   ]
-  // },
+  {
+    label: 'Hisobot',
+    key: 'Hisobot',
+    icon: renderIcon(FeaturedPlayListRound),
+    children: [
+      {
+        label: 'Buyurtmalar',
+        key: 'Buyurtmalar hisoboti',
+        icon: renderIcon(SpaceDashboardFilled),
+      },
+      {
+        label: 'Haydovchilar',
+        key: 'Haydovchilar hisoboti',
+        icon: renderIcon(Car),
+      }
+    ]
+  },
   {
     label: 'Foydalanuvchilar',
     key: 'Foydalanuvchilar',
