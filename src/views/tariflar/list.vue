@@ -6,7 +6,7 @@
     <n-divider style="margin: 5px 0;"></n-divider>
     <n-space style="display: flex; justify-content: space-around;">
       <n-card v-for="(item, index) in datas" :key="index"
-        style="width: 400px; background: linear-gradient(45deg, #9CFCF865, #6E7BFB65); box-shadow: 0 0 5px #00000055;">
+        style="width: 100%; background: linear-gradient(45deg, #9CFCF865, #6E7BFB65); box-shadow: 0 0 5px #00000055;">
         <template #header>
           <n-skeleton v-if="loading" text width="60%" :sharp="false" />
           <span v-else>

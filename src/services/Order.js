@@ -19,5 +19,12 @@ class BaseService {
         return res;
       });
   }
+  keshbak_update(data) {
+    return axios
+      .get(END_POINT + "/keshbek/" + data)
+      .then((res) => {
+        return res;
+      });
+  }
 }
 export default new BaseService();
