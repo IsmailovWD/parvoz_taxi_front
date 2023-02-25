@@ -29,7 +29,7 @@
             </n-tab-pane> -->
       </n-tabs>
     </div>
-</div>
+  </div>
 </template>
 <script setup>
 import { ref, onMounted, h, watch } from 'vue'
@@ -78,8 +78,12 @@ const columns = ref([
         },
         { default: () => summa_format(row.summa) }
       );
-    }
+    },
   },
+  {
+    title: "Keshbek summa",
+    key: 'kesh_back_summa'
+  }
   // {
   //   title: 'Firma summa',
   //   key: 'firma_summa',
@@ -155,6 +159,7 @@ const all_Order = () => {
   }
   Orders.completed_all(datas).then((res) => {
     if (res.success) {
+      console.log(res)
       data.value = res.data
       if (Math.round(res.count.soni / 100) < res.count.soni / 100) {
         pagination.value.pageCount = Math.round(res.count.soni / 100) + 1
